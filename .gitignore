@@ -30,3 +30,10 @@
 *.exe
 *.out
 *.app
+.vs/CASInterfaceService/v16/Server/sqlite3/db.lock
+.vs/CASInterfaceService/v16/Server/sqlite3/storage.ide
+.vs/CASInterfaceService/v16/Server/sqlite3/storage.ide-shm
+.vs/CASInterfaceService/v16/Server/sqlite3/storage.ide-wal
+bin/
+obj/
+.vs/
