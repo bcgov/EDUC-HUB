@@ -1,11 +1,11 @@
 name: compliance
 description: |
   This document is used to track a projects PIA and STRA
-  compliance.
+  compliance. This repo is part of the ECAS project. The PIA and STRA for the ECAS project apply to this.
 spec:
   - name: PIA
-    status: PIA_STATUS_HERE
+    status: Complete
     last-updated: '2020-03-11T18:32:49.000Z'
   - name: STRA
-    status: STRA_STATUS_HERE
+    status: in-progress
     last-updated: '2020-03-11T18:32:49.000Z'
