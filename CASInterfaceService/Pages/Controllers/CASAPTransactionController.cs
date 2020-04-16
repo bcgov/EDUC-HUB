@@ -19,19 +19,27 @@ namespace CASInterfaceService.Pages.Controllers
     [ApiController]
     public class CASAPTransactionController : Controller
     {
+        //REMOVE TODO
         private const string URL = "https://wsgw.test.jag.gov.bc.ca/victim/ords/cas/cfs/apinvoice/";
-        private const string TokenURL = "https://wsgw.test.jag.gov.bc.ca/victim/ords/cas/oauth/token";
+        //private const string TokenURL = "https://wsgw.test.jag.gov.bc.ca/victim/ords/cas/oauth/token";
+        private string TokenURL;
+        
         private string clientID = "";
         private string secret = "";
+        
 
         // POST: api/<controller>
         [HttpPost]
         public async Task<JObject> RegisterCASAPTransaction(CASAPTransaction casAPTransaction)
         {
             //TODO
-            var CAS_API_URI = Environment.GetEnvironmentVariable("CAS_API_URI");
-            Console.WriteLine("Testing - Environment Variable " + CAS_API_URI);
-            
+            var CAS_API_URI = Environment.GetEnvironmentVariable(ConfigContant.CAS_API_URI);
+            Console.WriteLine("Testing - Environment Variable API " + CAS_API_URI);
+            var CAS_TOKEN_URI = Environment.GetEnvironmentVariable(ConfigContant.CAS_TOKEN_URI);
+            Console.WriteLine("Testing - Environment Variable Token " + CAS_TOKEN_URI);
+
+            TokenURL = Environment.GetEnvironmentVariable(ConfigContant.CAS_TOKEN_URI);
+
             // Get the header
             var re = Request;
             var headers = re.Headers;
