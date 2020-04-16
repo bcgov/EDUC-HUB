@@ -21,8 +21,8 @@ namespace CASInterfaceService.Pages.Controllers
     [ApiController]
     public class CASAPRetreiveController : Controller
     {
-        private const string URL = "https://wsgw.test.jag.gov.bc.ca/victim/ords/cas/cfs/apinvoice/";
-        private const string TokenURL = "https://wsgw.test.jag.gov.bc.ca/victim/ords/cas/oauth/token";
+        private string TokenURL;
+        private string URL;
         private string clientID = "";
         private string secret = "";
 
@@ -40,6 +40,13 @@ namespace CASInterfaceService.Pages.Controllers
         [HttpPost("GetTransactionRecords")]
         public async Task<JObject> GetTransactionRecords(CASAPQuery casAPQuery)
         {
+
+            TokenURL = Environment.GetEnvironmentVariable(ConfigContant.CAS_API_SERVER) + Environment.GetEnvironmentVariable(ConfigContant.CAS_TOKEN_URI);
+            URL = Environment.GetEnvironmentVariable(ConfigContant.CAS_API_SERVER) + Environment.GetEnvironmentVariable(ConfigContant.CAS_INVOICE_URI);
+            Console.WriteLine("Environment Variable CAS API server " + Environment.GetEnvironmentVariable(ConfigContant.CAS_API_SERVER));
+            Console.WriteLine("Environment Variable Token URI " + Environment.GetEnvironmentVariable(ConfigContant.CAS_TOKEN_URI));
+            Console.WriteLine("Environment Variable INVOINCE URI " + Environment.GetEnvironmentVariable(ConfigContant.CAS_INVOICE_URI));
+
             // Get the header
             var re = Request;
             var headers = re.Headers;
