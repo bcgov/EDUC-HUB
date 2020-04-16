@@ -41,6 +41,7 @@ namespace CASInterfaceService.Pages.Controllers
         public async Task<JObject> GetTransactionRecords(CASAPQuery casAPQuery)
         {
 
+            Console.WriteLine("In GetTransactionRecords");
             TokenURL = Environment.GetEnvironmentVariable(ConfigContant.CAS_API_SERVER) + Environment.GetEnvironmentVariable(ConfigContant.CAS_TOKEN_URI);
             URL = Environment.GetEnvironmentVariable(ConfigContant.CAS_API_SERVER) + Environment.GetEnvironmentVariable(ConfigContant.CAS_INVOICE_URI);
             Console.WriteLine("Environment Variable CAS API server " + Environment.GetEnvironmentVariable(ConfigContant.CAS_API_SERVER));
