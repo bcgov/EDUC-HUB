@@ -28,7 +28,10 @@ namespace CASInterfaceService.Pages.Controllers
         [HttpPost]
         public async Task<JObject> RegisterCASAPTransaction(CASAPTransaction casAPTransaction)
         {
-
+            //TODO
+            var CAS_API_URI = Environment.GetEnvironmentVariable("CAS_API_URI");
+            Console.WriteLine("Testing - Environment Variable " + CAS_API_URI);
+            
             // Get the header
             var re = Request;
             var headers = re.Headers;
