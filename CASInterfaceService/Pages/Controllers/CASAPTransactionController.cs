@@ -32,13 +32,11 @@ namespace CASInterfaceService.Pages.Controllers
         [HttpPost]
         public async Task<JObject> RegisterCASAPTransaction(CASAPTransaction casAPTransaction)
         {
-            //TODO
-            var CAS_API_URI = Environment.GetEnvironmentVariable(ConfigContant.CAS_API_URI);
-            Console.WriteLine("Testing - Environment Variable API " + CAS_API_URI);
-            var CAS_TOKEN_URI = Environment.GetEnvironmentVariable(ConfigContant.CAS_TOKEN_URI);
-            Console.WriteLine("Testing - Environment Variable Token " + CAS_TOKEN_URI);
 
-            TokenURL = Environment.GetEnvironmentVariable(ConfigContant.CAS_TOKEN_URI);
+             
+            TokenURL = Environment.GetEnvironmentVariable(ConfigContant.CAS_API_SERVER) + Environment.GetEnvironmentVariable(ConfigContant.CAS_TOKEN_URI);
+            Console.WriteLine("Environment Variable CAS API server " + Environment.GetEnvironmentVariable(ConfigContant.CAS_API_SERVER));
+            Console.WriteLine("Environment Variable Token URI " + Environment.GetEnvironmentVariable(ConfigContant.CAS_TOKEN_URI));
 
             // Get the header
             var re = Request;
