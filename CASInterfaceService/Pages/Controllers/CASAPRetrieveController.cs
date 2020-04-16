@@ -56,7 +56,7 @@ namespace CASInterfaceService.Pages.Controllers
             secret = headers["secret"].ToString();
             clientID = headers["clientID"].ToString();
 
-            Console.WriteLine("In RegisterCASAPTransaction");
+            Console.WriteLine("In GetTransactionRecords");
             CASAPTransactionRegistrationReply casregreply = new CASAPTransactionRegistrationReply();
             CASAPQueryRegistration.getInstance().Add(casAPQuery);
 
