@@ -1,0 +1,10 @@
+#!/bin/bash
+set -e
+
+# Update CA certificates for SSL support
+yum update -y ca-certificates
+update-ca-trust extract
+
+# Call the original assemble script from the builder image
+exec /usr/libexec/s2i/assemble
+
