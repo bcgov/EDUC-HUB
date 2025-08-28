@@ -3,8 +3,9 @@ FROM registry.redhat.io/dotnet/dotnet-21-rhel7:latest
 
 USER root
 
-# Update system CA certificates
-RUN yum update -y ca-certificates && update-ca-trust extract
+COPY entrypoint.sh /opt/app-root/entrypoint.sh
+RUN chmod +x /opt/app-root/entrypoint.sh
+ENTRYPOINT ["/opt/app-root/entrypoint.sh"]
 
 USER 1001
 
