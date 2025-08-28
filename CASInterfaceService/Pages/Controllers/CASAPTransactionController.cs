@@ -43,6 +43,14 @@ namespace CASInterfaceService.Pages.Controllers
             // Get clientID and secret from header
             secret = headers["secret"].ToString();
             clientID = headers["clientID"].ToString();
+            if(secret != null && secret.Length > 0 && clientID != null && clientID.Length > 0){
+            {
+                Console.WriteLine("Client ID and Secret received");
+            }
+            } else
+            {
+                Console.WriteLine("Client ID or Secret not received");
+            }
 
             CASAPTransactionRegistrationReply casregreply = new CASAPTransactionRegistrationReply();
             CASAPTransactionRegistration.getInstance().Add(casAPTransaction);
@@ -73,8 +81,9 @@ namespace CASInterfaceService.Pages.Controllers
                 var formData = new List<KeyValuePair<string, string>>();
                 formData.Add(new KeyValuePair<string, string>("grant_type", "client_credentials"));
 
-                Console.WriteLine("Add credentials");
+                Console.WriteLine("Adding credentials");
                 request.Content = new FormUrlEncodedContent(formData);
+                Console.WriteLine("Sending request for token");
                 var response = await client.SendAsync(request);
 
                 response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
